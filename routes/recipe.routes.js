@@ -1,6 +1,5 @@
 module.exports = function(app) {
-    const recipe = require('../controllers/recipe.controller');
-    // var router = require('express').Router();
+    const recipes = require('../controllers/recipe.controllers.js');
 
     // Create a new Message
   app.post("/recipes", recipes.create);

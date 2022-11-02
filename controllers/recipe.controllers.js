@@ -1,7 +1,7 @@
-const db = require('../config/db.config.js')
+const db = require('../models');
 const env = require('../config/env.js');
 const Recipe = db.recipe;
-const Op = db.Sequelize.Op;
+
 
 // Créer et sauvegarder une recette
 exports.create = (req,res) => {

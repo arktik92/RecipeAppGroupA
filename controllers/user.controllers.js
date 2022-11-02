@@ -28,8 +28,8 @@ exports.create = (req, res) => {
    };
     
    // Find a User by Id
-   exports.findById = (req, res) => { 
-    User.findById(req.params.userId).then(user => {
+   exports.findOne = (req, res) => { 
+    User.findByPk(req.params.userId).then(user => {
     res.send(user);
     })
    };

@@ -1,19 +1,18 @@
 module.exports = function(app) {
-    const materiel = require('../controllers/materiel.controller');
-    // var router = require('express').Router();
+    const materiels = require('../controllers/materiel.controllers');
 
     // Create a new Message
-  app.post("/materiel", materiel.create);
+  app.post("/materiels", materiels.create);
 
   // Retrieve all Message
-  app.get("/materiel", materiel.findAll);
+  app.get("/materiels", materiels.findAll);
 
   // Retrieve a single Message with id
-  app.get("/materiel/:id", materiel.findOne);
+  app.get("/materiels/:id", materiels.findOne);
 
   // Update a Message with id
-  app.put("/materiel/:id", materiel.update);
+  app.put("/materiels/:id", materiels.update);
 
   // Delete a Message with id
-  app.delete("/materiel/:id", materiel.delete);
+  app.delete("/materiels/:id", materiels.delete);
 }

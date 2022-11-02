@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    const ingredient = require('../controllers/ingredient.controller');
+    const ingredient = require('../controllers/ingredient.controllers');
     // var router = require('express').Router();
 
     // Create a new Message

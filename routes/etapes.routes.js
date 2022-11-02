@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    const etapes = require('../controllers/etapes.controller');
+    const etapes = require('../controllers/etapes.controllers');
     // var router = require('express').Router();
 
     // Create a new Message

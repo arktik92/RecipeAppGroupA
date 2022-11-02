@@ -1,7 +1,7 @@
 const db = require('../config/db.config.js');
 const env = require('../config/env.js');
- 
-const Materiel = db.materiels;
+const Materiel = db.materiel;
+
  
 // Post a Materiel
 exports.create = (req, res) => { 
@@ -23,8 +23,8 @@ exports.findAll = (req, res) => {
 };
  
 // Find a Materiel by Id
-exports.findById = (req, res) => { 
- Materiel.findById(req.params.materielId).then(materiel => {
+exports.findOne = (req, res) => { 
+ Materiel.findByPk(req.params.materielId).then(materiel => {
  res.send(materiel);
  })
 };

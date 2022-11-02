@@ -23,8 +23,8 @@ exports.findAll = (req, res) => {
 };
  
 // Find an Ingredient by Id
-exports.findById = (req, res) => { 
- Ingredient.findById(req.params.ingredientID).then(ingredient => {
+exports.findOne = (req, res) => { 
+ Ingredient.findByPk(req.params.ingredientID).then(ingredient => {
  res.send(ingredient);
  })
 };

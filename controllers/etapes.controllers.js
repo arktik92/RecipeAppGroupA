@@ -26,8 +26,8 @@ Etape.findAll().then(etapes => {
 };
  
 // Find aetapes by Id
-exports.findById = (req, res) => { 
-Etape.findById(req.params.etapeId).then(etape => {
+exports.findOne = (req, res) => { 
+Etape.findByPk(req.params.etapeId).then(etape => {
  res.send(etape);
  })
 };

@@ -1,12 +1,13 @@
 module.exports = (sequelize, Sequelize) => {
     const RecetteIngredient = sequelize.define("recetteIngredient", {
-        Etape: {
-            mesure: Sequelize.STRING,
+        mesure: {
+            type: Sequelize.STRING,
         },
-        Desciption: {
-            quantite: Sequelize.INTEGER,
+        quantite: {
+            type: Sequelize.INTEGER,
         }
         
     });
     return RecetteIngredient;
 }
+

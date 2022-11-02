@@ -1,5 +1,5 @@
 module.exports = function(app) {
-    const materiel = require('../controllers/recettes_ingredients.controller');
+    const recettes_ingredients = require('../controllers/recette_ingredient.controllers.js');
     // var router = require('express').Router();
 
     // Create a new Message

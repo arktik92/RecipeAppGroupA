@@ -27,8 +27,8 @@ RecetteIngredient.findAll().then(recetteIngredients => {
 };
  
 // Find Recetteingredient by Id
-exports.findById = (req, res) => { 
-    RecetteIngredient.findById(req.params.recetteIngredientId).then(recetteIngredient => {
+exports.findOne = (req, res) => { 
+    RecetteIngredient.findByPk(req.params.recetteIngredientId).then(recetteIngredient => {
  res.send(recetteIngredient);
  })
 };
