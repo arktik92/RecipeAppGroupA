@@ -25,6 +25,7 @@ require("./routes/user.routes.js")(app);
 require("./routes/materiel.routes.js")(app);
 require("./routes/ingredient.routes.js")(app);
 require("./routes/etapes.routes.js")(app);
+require("./routes/recettes_ingredients.routes.js")(app);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
