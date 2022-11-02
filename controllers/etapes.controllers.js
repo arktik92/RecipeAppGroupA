@@ -19,7 +19,7 @@ Etape.create({
  
 // FETCH alletapess
 exports.findAll = (req, res) => {
-Etape.findAll().then(etape => {
+Etape.findAll().then(etapes => {
    // Send alletapess to Client
    res.send(etapes);
  });
