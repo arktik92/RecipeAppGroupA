@@ -1,4 +1,5 @@
-const db = require('../models');
+const db = require('../config/db.config.js')
+const env = require('../config/env.js');
 const Recipe = db.recipe;
 const Op = db.Sequelize.Op;
 
