@@ -20,6 +20,10 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.recipe = require('./recipe.models.js')(sequelize, Sequelize);
+db.user = require('./recipe.models.js')(sequelize, Sequelize);
+db.materiel = require('./materiel.models.js')(sequelize, Sequelize);
+db.ingredient = require('./ingredient.models.js')(sequelize, Sequelize);
+db.etapes = require('./etapes.models.js')(sequelize, Sequelize);
 
 
 module.exports = db;

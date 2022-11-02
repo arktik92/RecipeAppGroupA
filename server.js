@@ -21,11 +21,14 @@ app.get('/', (req,res) => {
 
 
 require("./routes/recipe.routes.js")(app);
+require("./routes/user.routes.js")(app);
+require("./routes/materiel.routes.js")(app);
+require("./routes/ingredient.routes.js")(app);
+require("./routes/etapes.routes.js")(app);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
     console.log(`Server is running on  http://localhost:${PORT}`);
 })
-
 
 db.sequelize.sync() 
