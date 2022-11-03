@@ -19,7 +19,11 @@ Etape.create({
  
 // FETCH alletapess
 exports.findAll = (req, res) => {
-Etape.findAll().then(etapes => {
+Etape.findAll({
+  include: ["recipe"]
+
+
+  }).then(etapes => {
    // Send alletapess to Client
    res.send(etapes);
  });
@@ -27,7 +31,11 @@ Etape.findAll().then(etapes => {
  
 // Find aetapes by Id
 exports.findOne = (req, res) => { 
-Etape.findByPk(req.params.etapeId).then(etape => {
+Etape.findByPk(req.params.etapeId,
+  {
+    iinclude: ["recipe"]
+
+  }).then(etape => {
  res.send(etape);
  })
 };
