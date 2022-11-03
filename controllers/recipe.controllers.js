@@ -36,10 +36,14 @@ Recipe.create(recipe)
 
 // Retrouver les messages depuis la database
 exports.findAll = (req,res) => {
-    Recipe.findAll()
-    .then(data => {
+ Recipe.findAll({
+    iclude: ["user"]
+
+ }).then(data => {
         res.send(data);
     })
+
+
     .catch(err => {
         res.status(500).send({
             message: err.message || "Une erreur est apparu lors de la recuperation des recettes."
@@ -50,8 +54,11 @@ exports.findAll = (req,res) => {
 // Retrouver message depuis Id 
 exports.findOne = (req,res) => {
 const id = req.params.id;
-Recipe.findByPk(id)
-.then(data => {
+Recipe.findByPk(id,
+    {
+include: ["user"]
+
+    }).then(data => {
     if (data) {
         res.send(data)
     } else {
@@ -60,6 +67,8 @@ Recipe.findByPk(id)
         })
     }
 })
+
+
 .catch(err => {
     res.status(500).send({
         message: "Impossible de rertrouver la recette avec l'id=" + id
