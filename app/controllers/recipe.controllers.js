@@ -13,7 +13,8 @@ exports.create = (req, res) => {
         category: req.body.category,
         season: req.body.season,
         image: req.body.image,
-        price: req.body.price
+        price: req.body.price,
+		userId: req.body.userId
 	}).then(recipe => {		
 		// Send created user to client
 		res.send(recipe);
@@ -23,7 +24,7 @@ exports.create = (req, res) => {
 // FETCH all Users
 exports.findAll = (req, res) => {
 	Recipe.findAll({
-		include: ["user"]
+		include: ["users"]
 	}).then(recipes => {
 	  // Send all users to Client
 	  res.send(recipes);
@@ -33,7 +34,7 @@ exports.findAll = (req, res) => {
 // Find a User by Id
 exports.findById = (req, res) => {	
 	Recipe.findByPk(req.params.recipeId, {
-		include: ["user"]
+		include: ["users"]
 	}).then(recipe => {
 		res.send(recipe);
 	})

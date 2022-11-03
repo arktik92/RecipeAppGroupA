@@ -1,3 +1,4 @@
+const { ingredients, recipes } = require('../config/db.config');
 const db = require('../config/db.config');
 const env = require('../config/env.js');
 
@@ -8,7 +9,9 @@ exports.create = (req, res) => {
 	// Save to MySQL database
 	RecetteIngredient.create({  
 	  mesure: req.body.mesure,
-   quantite: req.body.quantite
+    quantite: req.body.quantite,
+    recipeId: req.body.recipeId,
+    ingredientId: req.body.ingredientId
 	}).then(recetteIngredient => {		
 		// Send created user to client
 		res.send(recetteIngredient);
@@ -17,7 +20,9 @@ exports.create = (req, res) => {
  
 // FETCH all Users
 exports.findAll = (req, res) => {
-	RecetteIngredient.findAll().then(recetteIngredients => {
+	RecetteIngredient.findAll({
+    include: ["recipes", "ingredients"]
+  }).then(recetteIngredients => {
 	  // Send all users to Client
 	  res.send(recetteIngredients);
 	});
@@ -25,7 +30,9 @@ exports.findAll = (req, res) => {
 
 // Find a User by Id
 exports.findById = (req, res) => {	
-	RecetteIngredient.findByPk(req.params.recetteIngredientId).then(recetteIngredient => {
+	RecetteIngredient.findByPk(req.params.recetteIngredientId, {
+    include: ["recipes", "ingredients"]
+  }).then(recetteIngredient => {
 		res.send(recetteIngredients);
 	})
 };

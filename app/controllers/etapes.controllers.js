@@ -19,7 +19,9 @@ exports.create = (req, res) => {
  
 // FETCH all Steps
 exports.findAll = (req, res) => {
-	Etape.findAll().then(etapes => {
+	Etape.findAll({
+		include: ["recipe"]
+	}).then(etapes => {
 	  // Send all Step to Client
 	  res.send(etapes);
 	});
