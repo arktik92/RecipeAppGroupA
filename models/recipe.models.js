@@ -1,5 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
     const Recipe = sequelize.define("recipe", {
+
+        recipeId: {
+            type: Sequelize.INTEGER,  
+            primaryKey: true
+          },
+
         title: {
             type: Sequelize.STRING,
         },
