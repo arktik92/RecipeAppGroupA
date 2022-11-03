@@ -1,4 +1,5 @@
 module.exports = function(app) {
+
     const materiels = require('../controllers/materiel.controllers');
 
     // Create a new Message
@@ -8,11 +9,11 @@ module.exports = function(app) {
   app.get("/materiels", materiels.findAll);
 
   // Retrieve a single Message with id
-  app.get("/materiels/:id", materiels.findOne);
+  app.get("/materiels/:materielId", materiels.findById);
 
   // Update a Message with id
-  app.put("/materiels/:id", materiels.update);
+  app.put("/materiels/:materielId", materiels.update);
 
   // Delete a Message with id
-  app.delete("/materiels/:id", materiels.delete);
+  app.delete("/materiels/:materielId", materiels.delete);
 }
