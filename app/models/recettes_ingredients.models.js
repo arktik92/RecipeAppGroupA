@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-    const RecetteIngredient = sequelize.define("recetteIngredient", {
+    const RecetteIngredient = sequelize.define("recetteIngredients", {
 
         RecetteIngredientId: {
             type: Sequelize.INTEGER,
@@ -15,7 +15,7 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: false,
             references: {
               model: 'mesures',
-              key: 'mesurId'
+              key: 'mesureId'
             }
           },
 
@@ -27,8 +27,8 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER,
             primaryKey: false,
             references: {
-              model: 'quantitess',
-              key: 'quaniteId'
+              model: 'quantites',
+              key: 'quantiteId'
             }
           },
         

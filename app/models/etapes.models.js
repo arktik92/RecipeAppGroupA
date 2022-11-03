@@ -1,12 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
-    const Etape = sequelize.define("etapes", {
-        Etape: {
+	const Etape = sequelize.define('etapes', {
+        etape: {
             type: Sequelize.STRING,
         },
-        Desciption: {
+        description: {
             type: Sequelize.STRING,
         }
-        
-    });
-    return Etape;
+	});
+	return Etape;
 }

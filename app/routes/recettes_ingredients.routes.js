@@ -9,11 +9,11 @@ module.exports = function(app) {
   app.get("/recettes_ingredients", recettes_ingredients.findAll);
 
   // Retrieve a single Message with id
-  app.get("/recettes_ingredients/:id", recettes_ingredients.findOne);
+  app.get("/recettes_ingredients/:recette_ingredientid", recettes_ingredients.findById);
 
   // Update a Message with id
-  app.put("/recettes_ingredients/:id", recettes_ingredients.update);
+  app.put("/recettes_ingredients/:recette_ingredientid", recettes_ingredients.update);
 
   // Delete a Message with id
-  app.delete("/recettes_ingredients/:id", recettes_ingredients.delete);
+  app.delete("/recettes_ingredients/:recette_ingredientid", recettes_ingredients.delete);
 }
