@@ -43,8 +43,15 @@ exports.findById = (req, res) => {
 // Update a User
 exports.update = (req, res) => {
 	const id = req.params.recipeId;
-	Recipe.update( { title: req.body.title, time: req.body.time, difficulty: req.body.difficulty, category: req.body.category, season: req.body.season, image: req.body.image, price: req.body.price }, 
-		{ where: {id: req.params.recipeId} }
+	Recipe.update( { title: req.body.title, 
+		time: req.body.time, 
+		difficulty: req.body.difficulty, 
+		category: req.body.category, 
+		season: req.body.season, 
+		image: req.body.image, 
+		price: req.body.price }, 
+		{ 
+			where: {id: req.params.recipeId} }
 	).then(() => {
 		res.status(200).send({ message: 'updated successfully a user with id = ' + id });
 	});

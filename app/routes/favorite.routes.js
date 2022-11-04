@@ -1,19 +1,19 @@
 module.exports = function(app) {
-    const favorite = require('../controllers/favorite.controllers.js');
+    const favorites = require('../controllers/favorite.controllers.js');
     // var router = require('express').Router();
 
     // Create a new Message
-  app.post("/favorite", favorite.create);
+  app.post("/favorites", favorites.create);
 
   // Retrieve all Message
-  app.get("/favorite", favorite.findAll);
+  app.get("/favorites", favorites.findAll);
 
   // Retrieve a single Message with id
-  app.get("/favorite/:favoriteId", favorite.findById);
+  app.get("/favorites/:favoriteId", favorites.findByPk);
 
   // Update a Message with id
-  app.put("/favorite/:favoriteId", favorite.update);
+  app.put("/favorites/:favoriteId", favorites.update);
 
   // Delete a Message with id
-  app.delete("/favorite/:favoriteId", favorite.delete);
+  app.delete("/favorites/:favoriteId", favorites.delete);
 }
