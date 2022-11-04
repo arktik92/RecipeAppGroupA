@@ -24,7 +24,7 @@ exports.findAll = (req, res) => {
 
 // Find a User by Id
 exports.findById = (req, res) => {	
-	Ingredient.findByPk(req.params.ingredientId).then(ingredient => {
+	Ingredient.findBy(req.params.ingredientId).then(ingredient => {
 		res.send(ingredient);
 	})
 };

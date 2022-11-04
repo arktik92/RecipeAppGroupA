@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-	const Etape = sequelize.define('etapes', {
+	const Step = sequelize.define('steps', {
         etape: {
             type: Sequelize.STRING,
         },
@@ -7,5 +7,5 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
         }
 	});
-	return Etape;
+	return Step;
 }
