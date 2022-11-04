@@ -9,7 +9,7 @@ exports.create = (req, res) => {
 	Step.create({  
 	etape: req.body.etape,
     description: req.body.description,
-	recipeId: request.body.recipeId
+	recipeId: req.body.recipeId
   }).then(step => {		
 		// Send created step to client
 		res.send(step);
@@ -19,7 +19,7 @@ exports.create = (req, res) => {
 // FETCH all Steps
 exports.findAll = (req, res) => {
 	Step.findAll({
-		include: ["recipe"]
+		include: ["recipes"]
 	}).then(steps => {
 	  // Send all Step to Client
 	  res.send(steps);
@@ -29,7 +29,7 @@ exports.findAll = (req, res) => {
 // Find a Step by Id
 exports.findById = (req, res) => {	
 	Step.findByPk(req.params.stepId, {
-		include: ["recipe"]
+		include: ["recipes"]
 	}).then(step => {
 		res.send(step);
 	})

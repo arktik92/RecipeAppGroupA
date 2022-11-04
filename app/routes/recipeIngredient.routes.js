@@ -2,10 +2,10 @@ module.exports = (app) => {
     const recipeIngredients = require('../controllers/recipeIngredient.controllers.js');
 
     //Create a new recipeIngredient
-    app.post('/recipeIngredients/index', recipeIngredients.create);
+    app.post('/recipeIngredients', recipeIngredients.create);
 
     //Retrieve all recipeIngredients
-    app.get('/recipeIngredients/index', recipeIngredients.findAll);
+    app.get('/recipeIngredients', recipeIngredients.findAll);
 
     //Retrieve a single Recipe Ingredient by Pk
     app.get('/recipeIngredients/:recipeIngredientId', recipeIngredients.findByPk);

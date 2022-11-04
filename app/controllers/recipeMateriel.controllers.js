@@ -17,7 +17,7 @@ exports.create = (request, response) => {
 //FETCH all amount of Recipe Utensil
 exports.findAll = (request, response) => {
     RecipeMateriel.findAll({
-        include: ["recipe", "materiel"]
+        include: ["recipes", "materiels"]
     }).then(recipeMateriels => {
         response.send(recipeMateriels);
     });
