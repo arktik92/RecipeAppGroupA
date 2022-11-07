@@ -23,9 +23,7 @@ exports.findAll = (request, response) => {
 
 //Find Favorite by Id
 exports.findByPk = (request, response) => {
-    Favorite.findByPk(request.params.favoriteId, {
-        include: ["recipe", "user"]
-    }).then(favorite => {
+    Favorite.findByPk(request.params.favoriteId).then(favorite => {
         response.send(favorite);
     });
 };
