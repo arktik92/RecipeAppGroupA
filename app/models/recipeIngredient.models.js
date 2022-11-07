@@ -7,7 +7,7 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true
           },
         quantity: {
-            type: Sequelize.DOUBLE,
+            type: Sequelize.STRING,
             allowNull: false
         },
         unity: {

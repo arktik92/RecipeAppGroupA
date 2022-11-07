@@ -7,7 +7,7 @@ const RecipeIngredient = db.recipeIngredients;
 exports.create = (request, response) => {
     //Save to MySQL database
     RecipeIngredient.create({
-        quantity: request.body.amount,
+        quantity: request.body.quantity,
         unity: request.body.unity,
         recipeId: request.body.recipeId,
         ingredientId: request.body.ingredientId
@@ -18,18 +18,14 @@ exports.create = (request, response) => {
 
 //FETCH all amount of Recipe Ingredient
 exports.findAll = (request, response) => {
-    RecipeIngredient.findAll({
-        include: ["recipes", "ingredients"]
-    }).then(recipeIngredient => {
+    RecipeIngredient.findAll().then(recipeIngredient => {
         response.send(recipeIngredient);
     });
 };
 
 //Find an amount of Recipe Ingredient by Id
 exports.findByPk = (request, response) => {
-    RecipeIngredient.findByPk(request.params.recipeIngredientId, {
-        include: ["recipe", "ingredient"]
-    }).then(recipeIngredient => {
+    RecipeIngredient.findByPk(request.params.recipeIngredientId).then(recipeIngredient => {
         response.send(recipeIngredient);
     });
 };
@@ -37,7 +33,7 @@ exports.findByPk = (request, response) => {
 exports.update = (request, response) => {
     const id = request.params.recipeIngredientId;
     RecipeIngredient.update({
-        amount: request.body.amount
+        quantity: request.body.quantity
     }, {
         where: {
             recipeIngredientId: id

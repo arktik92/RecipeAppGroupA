@@ -16,18 +16,14 @@ exports.create = (request, response) => {
 
 //FETCH all amount of Recipe Utensil
 exports.findAll = (request, response) => {
-    RecipeMateriel.findAll({
-        include: ["recipes", "materiels"]
-    }).then(recipeMateriels => {
+    RecipeMateriel.findAll().then(recipeMateriels => {
         response.send(recipeMateriels);
     });
 };
 
 //Find an amount of Recipe Utensil by Id
 exports.findByPk = (request, response) => {
-    RecipeMateriel.findByPk(request.params.recipeMaterielId, {
-        include: ["recipe", "materiel"]
-    }).then(recipeMateriel => {
+    RecipeMateriel.findByPk(request.params.recipeMaterielId).then(recipeMateriel => {
         response.send(recipeMateriel);
     });
 };
