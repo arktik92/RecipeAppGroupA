@@ -24,7 +24,7 @@ exports.create = (req, res) => {
 // FETCH all Users
 exports.findAll = (req, res) => {
 	Recipe.findAll({
-		include: ["users" , "recipeIngredients", "recipeMateriels", "steps"]
+		include: ["users" , "recipeIngredients", "recipeMateriels", "steps", "favorites"]
 	}).then(recipes => {
 	  // Send all users to Client
 	  res.send(recipes);
