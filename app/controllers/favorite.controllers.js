@@ -16,9 +16,7 @@ exports.create = (request, response) => {
 
 //FETCH all Favorite
 exports.findAll = (request, response) => {
-    Favorite.findAll({
-        include: ["recipes", "users"]
-    }).then(favorite => {
+    Favorite.findAll().then(favorite => {
         response.send(favorite);
     });
 };

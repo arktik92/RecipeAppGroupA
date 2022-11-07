@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const RecipeMateriel = sequelize.define("recipeMateriels", {
-        recipeMateriel: {
+        recipeMateriel_id: {
             type: Sequelize.INTEGER,
             allowNull: false,
             autoIncrement: true,
