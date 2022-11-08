@@ -1,15 +1,19 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser   = require('body-parser');
 const app = express();
-const dotenv = require('dotenv');
-dotenv.config(); 
+ 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const db = require('./app/models');
+const db = require('./app/config/db.config.js');
+//  db.sequelize.sync({force: false}).then(() => {
+//  console.log('Drop and Resync with { force: true }');
+// });
  
 // api routes
 app.get("/", (req, res) => {
