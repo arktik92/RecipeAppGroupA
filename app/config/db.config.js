@@ -1,18 +1,42 @@
+require('dotenv').config();
 const env = require('./.env.js');
 
+/*
+DATABASE ENV 
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(env.database, env.username, env.password, {
   host: env.host,
-  dialect: env.dialect,
+  dialect: process.env.dialect,
   operatorsAliases: false,
  
   pool: {
-    max: env.pool.max,
-    min: env.pool.min,
-    acquire: env.pool.acquire,
-    idle: env.pool.idle
+    max: process.env.pool.max,
+    min: process.env.pool.min,
+    acquire: process.env.pool.acquire,
+    idle: process.env.pool.idle
   }
 });
+*/
+
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false
+      }
+    }
+  }
+);
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
  
 const db = {};
  
@@ -28,12 +52,6 @@ db.recipes = require('../models/recipe.models.js')(sequelize, Sequelize);
 db.recipeIngredients = require('../models/recipeIngredient.models.js')(sequelize, Sequelize);
 db.recipeMateriels = require('../models/recipeMateriel.models.js')(sequelize, Sequelize);
 db.favorites = require('../models/favorite.models.js')(sequelize, Sequelize);
-/*
-db.recettes_ingredients = require('../models/recettes_ingredients.models.js')(sequelize, Sequelize);
-db.favorites = require('../models/favorite.models.js')(sequelize, Sequelize);
-db.recettes_materiels = require('../models/recipe_materiel.models.js')(sequelize, Sequelize);
-*/
-
 
 // relations 1:N
 

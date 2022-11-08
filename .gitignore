@@ -3,4 +3,4 @@
 
 # Ignore files related to API keys
 .env
-.gitignore
+node_modules

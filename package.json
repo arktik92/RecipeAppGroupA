@@ -5,18 +5,22 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "heroku-postbuild": "npm install --production"
+  },
+  "engines": {
+    "node": "16.18.0",
+    "npm": "8.19.2"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
-
-    "mysql2": "^2.3.3",
-
     "nodemon": "^2.0.20",
-
+    "pg": "^8.8.0",
+    "pg-hstore": "^2.3.4",
     "sequelize": "^6.25.3"
   }
 }
