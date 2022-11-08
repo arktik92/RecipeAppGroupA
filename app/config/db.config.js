@@ -1,22 +1,21 @@
 require('dotenv').config();
-const env = require('./.env.js');
 
-/*
-DATABASE ENV 
-const Sequelize = require('sequelize');
-const sequelize = new Sequelize(env.database, env.username, env.password, {
-  host: env.host,
-  dialect: process.env.dialect,
-  operatorsAliases: false,
- 
-  pool: {
-    max: process.env.pool.max,
-    min: process.env.pool.min,
-    acquire: process.env.pool.acquire,
-    idle: process.env.pool.idle
-  }
-});
-*/
+const database = process.env.DB_NAME;
+const username = process.env.DB_USER;
+const password = process.env.DB_PASSWORD;
+const host = process.env.DB_HOST;
+const dialect = process.env.DB_DIALECT;
+const dbUrl = process.env.DATABASE_URL;
+
+
+// const Sequelize = require('sequelize');
+// const sequelize = new Sequelize(username, database, password, {
+//   host: host,
+//   dialect: "postgres",
+//   operatorsAliases: "0",
+
+// });
+
 
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.DATABASE_URL, {

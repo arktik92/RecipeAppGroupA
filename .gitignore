@@ -2,5 +2,6 @@
 .DS_store
 
 # Ignore files related to API keys
-.env
 node_modules
+.env
+
