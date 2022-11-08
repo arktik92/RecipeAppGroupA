@@ -1,5 +1,5 @@
 const db = require('../config/db.config');
-const env = require('../config/env.js');
+const env = require('../config/.env.js');
 
 const Recipe = db.recipes;
 
