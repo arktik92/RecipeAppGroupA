@@ -9,10 +9,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-const db = require('./app/config/db.config.js');
- db.sequelize.sync({force: false}).then(() => {
- console.log('Drop and Resync with { force: true }');
-});
+const db = require('./app/models');
  
 // api routes
 app.get("/", (req, res) => {
