@@ -1,4 +1,4 @@
-require('dotenv').config();
+
 
 const database = process.env.DB_NAME;
 const username = process.env.DB_USER;
@@ -7,15 +7,15 @@ const host = process.env.DB_HOST;
 const dialect = process.env.DB_DIALECT;
 const dbUrl = process.env.DATABASE_URL;
 
+/*
+const Sequelize = require('sequelize');
+const sequelize = new Sequelize(username, database, password, {
+  host: host,
+  dialect: "postgres",
+  operatorsAliases: "0",
 
-// const Sequelize = require('sequelize');
-// const sequelize = new Sequelize(username, database, password, {
-//   host: host,
-//   dialect: "postgres",
-//   operatorsAliases: "0",
-
-// });
-
+});
+*/
 
 const Sequelize = require('sequelize');
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
@@ -28,6 +28,7 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
   }
 );
 
+
 sequelize
   .authenticate()
   .then(() => {
@@ -36,7 +37,7 @@ sequelize
   .catch(err => {
     console.error('Unable to connect to the database:', err);
   });
- 
+
 const db = {};
  
 db.Sequelize = Sequelize;
