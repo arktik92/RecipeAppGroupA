@@ -1,11 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
     const RecipeIngredient = sequelize.define("recipeIngredients", {
-        recipeIngredient_id: {
-            type: Sequelize.INTEGER,
-            allowNull: false,
-            autoIncrement: true,
-            primaryKey: true
-          },
         quantity: {
             type: Sequelize.STRING,
             allowNull: false
