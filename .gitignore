@@ -3,5 +3,5 @@
 
 # Ignore files related to API keys
 node_modules
-app/config/.env
+.env
 
