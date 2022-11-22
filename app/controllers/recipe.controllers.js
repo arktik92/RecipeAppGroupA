@@ -3,7 +3,7 @@ const db = require('../config/db.config');
 
 const Recipe = db.recipes;
 
-// Post a User
+// Post Recipe
 exports.create = (req, res) => {	
 	// Save to MySQL database
 	Recipe.create({  
@@ -15,15 +15,44 @@ exports.create = (req, res) => {
         image: req.body.image,
         price: req.body.price,
 		userId: req.body.userId
-	}).then(recipe => {		
-		// Send created user to client
-		res.send(recipe);
-	});
-};
+	}) .then(ingredients => {
+		if (req.body.ingredients) {
+		  Ingredients.findAll({
+			where: {
+			  name: {
+				[Op.or]: req.body.ingredients
+			  }
+			}
+		  }).then(ingredients => {
+			user.setIngredients(ingredients).then(() => {
+			  res.send({ message: "Ingredient was add successfully!" });
+			});
+		  });
+		}
+	  })
+	}
+// exports.create = (req, res) => {	
+// 	// Save to MySQL database
+// 	Recipe.create({  
+//         title: req.body.title,
+//         time: req.body.time,
+//         difficulty: req.body.difficulty,
+//         category: req.body.category,
+//         season: req.body.season,
+//         image: req.body.image,
+//         price: req.body.price,
+// 		userId: req.body.userId
+// 	}).then(recipe => {		
+// 		// Send created user to client
+// 		res.send(recipe);
+// 	});
+// };
  
 // FETCH all Users
 exports.findAll = (req, res) => {
-	Recipe.findAll().then(recipes => {
+	Recipe.findAll({
+		include: ["users" , "ingredients", "materiels", "steps", "favorites"]
+	}).then(recipes => {
 	  // Send all users to Client
 	  res.send(recipes);
 	});
@@ -31,7 +60,9 @@ exports.findAll = (req, res) => {
 
 // Find a User by Id
 exports.findById = (req, res) => {	
-	Recipe.findByPk(req.params.recipeId).then(recipe => {
+	Recipe.findByPk(req.params.recipeId, {
+		include: ["users", "recipeIngredients", "recipeMateriels", "steps", "favorites"]
+	}).then(recipe => {
 		res.send(recipe);
 	})
 };
