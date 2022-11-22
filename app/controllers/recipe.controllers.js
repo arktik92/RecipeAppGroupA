@@ -1,5 +1,5 @@
 const db = require('../config/db.config');
-
+Cont Ingredients = db.ingredients
 
 const Recipe = db.recipes;
 
@@ -25,7 +25,7 @@ exports.create = (req, res) => {
 			}
 		  }).then(ingredients => {
 			user.setIngredients(ingredients).then(() => {
-			  res.send({ message: "Ingredient was add successfully!" });
+			  res.send({ message: "Ingredient was added successfully!" });
 			});
 		  });
 		}
@@ -61,7 +61,7 @@ exports.findAll = (req, res) => {
 // Find a User by Id
 exports.findById = (req, res) => {	
 	Recipe.findByPk(req.params.recipeId, {
-		include: ["users" , "ingredients", "materiels", "steps", "favorites"]
+		include: ["users", "ingredients", "materiels", "steps", "favorites"]
 	}).then(recipe => {
 		res.send(recipe);
 	})
