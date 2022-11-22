@@ -23,9 +23,7 @@ exports.create = (req, res) => {
  
 // FETCH all Users
 exports.findAll = (req, res) => {
-	Recipe.findAll({
-		include: ["users" , "ingredients", "materiels", "steps", "favorite"]
-	}).then(recipes => {
+	Recipe.findAll().then(recipes => {
 	  // Send all users to Client
 	  res.send(recipes);
 	});
@@ -33,9 +31,7 @@ exports.findAll = (req, res) => {
 
 // Find a User by Id
 exports.findById = (req, res) => {	
-	Recipe.findByPk(req.params.recipeId, {
-		include: ["users", "recipeIngredients", "recipeMateriels", "steps", "favorites"]
-	}).then(recipe => {
+	Recipe.findByPk(req.params.recipeId).then(recipe => {
 		res.send(recipe);
 	})
 };

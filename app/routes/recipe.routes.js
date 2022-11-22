@@ -6,7 +6,7 @@ module.exports = function(app) {
   app.post('/recipes', recipes.create);
 
   // Retrieve all User
-  app.get('/recipes', recipes.findAll);
+  app.get('/recipes', recipes.findAlsl);
 
   // Retrieve a single User by Id
   app.get('/recipes/:recipeId', recipes.findById);
