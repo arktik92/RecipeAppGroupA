@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         image: req.body.image,
         price: req.body.price,
 		userId: req.body.userId
-	}) .then(ingredients => {
+	}) .then(recipe => {
 		if (req.body.ingredients) {
 		  Ingredients.findAll({
 			where: {
@@ -23,13 +23,14 @@ exports.create = (req, res) => {
 				[Op.or]: req.body.ingredients
 			  }
 			}
-		  }).then(ingredients => {
-			user.setIngredients(ingredients).then(() => {
+		  }).then(recipe => {
+			recipe.setIngredients(ingredients).then(() => {
 			  res.send({ message: "Ingredient was added successfully!" });
 			});
 		  });
 		}
 	  })
+
 	}
 // exports.create = (req, res) => {	
 // 	// Save to MySQL database
