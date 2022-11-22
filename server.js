@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to the TEAM's App." });
 });
  
-// require('./app/routes/user.routes.js')(app);
+ require('./app/routes/user.routes.js')(app);
 // require('./app/routes/step.routes.js')(app);
 // require('./app/routes/ingredient.routes.js')(app);
 // require('./app/routes/materiel.routes.js')(app);
