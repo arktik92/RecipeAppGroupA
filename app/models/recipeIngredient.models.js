@@ -1,4 +1,4 @@
-/*
+
 module.exports = (sequelize, Sequelize) => {
     const RecipeIngredient = sequelize.define("recipeIngredients", {
         quantity: {
@@ -33,4 +33,3 @@ module.exports = (sequelize, Sequelize) => {
 
     return RecipeIngredient;
 }
-*/
