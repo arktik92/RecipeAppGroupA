@@ -42,9 +42,9 @@ db.steps = require('../models/step.models.js')(sequelize, Sequelize);
 db.ingredients = require('../models/ingredient.models.js')(sequelize, Sequelize);
 db.materiels = require('../models/materiel.models.js')(sequelize, Sequelize);
 db.recipes = require('../models/recipe.models.js')(sequelize, Sequelize);
-db.recipeIngredients = require('../models/recipeIngredient.models.js')(sequelize, Sequelize);
-db.recipeMateriels = require('../models/recipeMateriel.models.js')(sequelize, Sequelize);
-db.favorites = require('../models/favorite.models.js')(sequelize, Sequelize);
+// db.recipeIngredients = require('../models/recipeIngredient.models.js')(sequelize, Sequelize);
+// db.recipeMateriels = require('../models/recipeMateriel.models.js')(sequelize, Sequelize);
+// db.favorites = require('../models/favorite.models.js')(sequelize, Sequelize);
 
 // relations 1:N
 
@@ -65,35 +65,61 @@ db.steps.belongsTo(db.recipes, {
 // Relations N:N
 
 // Ingredient -> RecipeIngredient <- Recipe
-db.ingredients.belongsToMany(db.recipes, { through: "recipeIngredients" });
-db.recipes.belongsToMany(db.ingredients, { through: "recipeIngredients" });
+db.ingredients.belongsToMany(db.recipes, { 
+  through: "recipeIngredients", 
+  oreignKey: "ingredientId",
+  otherKey: "recipeId"
+});
 
-db.ingredients.hasMany(db.recipeIngredients);
-db.recipeIngredients.belongsTo(db.ingredients);
+db.recipes.belongsToMany(db.ingredients, { 
+  through: "recipeIngredients",
+  foreignKey: "recipeId",
+  otherKey: "ingredientId" 
+});
 
-db.recipes.hasMany(db.recipeIngredients);
-db.recipeIngredients.belongsTo(db.recipes);
+
+// db.ingredients.hasMany(db.recipeIngredients);
+// db.recipeIngredients.belongsTo(db.ingredients);
+
+// db.recipes.hasMany(db.recipeIngredients);
+// db.recipeIngredients.belongsTo(db.recipes);
 
 // Materiel -> RecipeMateriel <- Recipe
-db.materiels.belongsToMany(db.recipes, { through: "recipeMateriels" });
-db.recipes.belongsToMany(db.materiels, { through: "recipeMateriels" });
+db.materiels.belongsToMany(db.recipes, { 
+  through: "recipeMateriels",
+  foreignKey: "materielId",
+  otherKey: "recipeId"
+});
+db.recipes.belongsToMany(db.materiels, { 
+  through: "recipeMateriels",
+  foreignKey: "recipeId",
+  otherKey: "materielId"
+});
 
-db.materiels.hasMany(db.recipeMateriels);
-db.recipeMateriels.belongsTo(db.materiels);
+// db.materiels.hasMany(db.recipeMateriels);
+// db.recipeMateriels.belongsTo(db.materiels);
 
-db.recipes.hasMany(db.recipeMateriels);
-db.recipeMateriels.belongsTo(db.recipes);
+// db.recipes.hasMany(db.recipeMateriels);
+// db.recipeMateriels.belongsTo(db.recipes);
 
 
 //User -> Favorite <- Recipe
-db.users.belongsToMany(db.recipes, { through: "favorites" });
-db.recipes.belongsToMany(db.users, { through: "favorites" });
+db.users.belongsToMany(db.recipes, { 
+  through: "favorites",
+  foreignKey: "userId",
+  otherKey: "recipeId"
+ });
+ db.recipes.belongsToMany(db.users, { 
+  through: "favorites",
+  foreignKey: "recipeId",
+  otherKey: "userId"
+ });
 
-db.users.hasMany(db.favorites);
-db.favorites.belongsTo(db.users);
+// db.users.hasMany(db.favorites);
+// db.favorites.belongsTo(db.users);
 
-db.recipes.hasMany(db.favorites);
-db.favorites.belongsTo(db.recipes);
+// db.recipes.hasMany(db.favorites);
+// db.favorites.belongsTo(db.recipes);
 
 
 
