@@ -23,7 +23,7 @@ exports.create = (req, res) => {
 				[Op.or]: req.body.ingredients
 			  }
 			}
-		  }).then(recipe => {
+		  }).then(ingredients => {
 			recipe.setIngredients(ingredients).then(() => {
 			  res.send({ message: "Ingredient was added successfully!" });
 			});
