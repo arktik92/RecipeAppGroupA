@@ -61,7 +61,7 @@ exports.findAll = (req, res) => {
 // Find a User by Id
 exports.findById = (req, res) => {	
 	Recipe.findByPk(req.params.recipeId, {
-		include: ["users", "recipeIngredients", "recipeMateriels", "steps", "favorites"]
+		include: ["users" , "ingredients", "materiels", "steps", "favorites"]
 	}).then(recipe => {
 		res.send(recipe);
 	})
