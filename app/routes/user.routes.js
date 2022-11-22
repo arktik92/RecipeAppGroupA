@@ -1,4 +1,4 @@
-/*
+
 
 module.exports = function(app) {
  
@@ -20,4 +20,3 @@ module.exports = function(app) {
     app.delete('/users/:userId', users.delete);
 
 }
-*/
