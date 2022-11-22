@@ -1,6 +1,6 @@
 const db = require('../config/db.config');
 const Ingredients = db.ingredients
-
+const Op = db.Sequelize.Op
 const Recipe = db.recipes;
 
 // Post Recipe
