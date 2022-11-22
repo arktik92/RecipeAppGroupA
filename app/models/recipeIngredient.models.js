@@ -1,3 +1,4 @@
+/*
 module.exports = (sequelize, Sequelize) => {
     const RecipeIngredient = sequelize.define("recipeIngredients", {
         quantity: {
@@ -8,6 +9,7 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.STRING,
             allowNull: false
         },
+        
         recipeId: {
             type: Sequelize.INTEGER,
             primaryKey: false,
@@ -26,7 +28,9 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'ingredientId'
               },
         }
+        
     });
 
     return RecipeIngredient;
 }
+*/

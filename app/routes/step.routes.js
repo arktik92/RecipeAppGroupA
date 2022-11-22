@@ -1,3 +1,4 @@
+/*
 module.exports = function(app) {
  
   const steps = require('../controllers/step.controllers');
@@ -18,3 +19,4 @@ module.exports = function(app) {
   app.delete('/steps/:stepId', steps.delete);
 
 }
+*/

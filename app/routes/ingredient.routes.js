@@ -1,3 +1,4 @@
+/*
 module.exports = function(app) {
  
   const ingredients = require('../controllers/ingredient.controllers');
@@ -18,3 +19,4 @@ module.exports = function(app) {
   app.delete('/ingredients/:ingredientId', ingredients.delete);
 
 }
+*/

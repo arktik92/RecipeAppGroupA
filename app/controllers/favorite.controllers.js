@@ -1,3 +1,4 @@
+/*
 const db = require('../config/db.config.js');
 
 
@@ -55,3 +56,4 @@ exports.delete = (request, response) => {
         });
     });
 };
+*/

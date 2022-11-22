@@ -1,5 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
     const RecipeMateriel = sequelize.define("recipeMateriels", {
+        /*
         recipeId: {
             type: Sequelize.INTEGER,
             primaryKey: false,
@@ -16,6 +17,7 @@ module.exports = (sequelize, Sequelize) => {
                 key: 'materielId'
               },
         }
+        */
     });
 
     return RecipeMateriel;

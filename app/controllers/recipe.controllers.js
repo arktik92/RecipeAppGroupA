@@ -43,7 +43,8 @@ exports.findById = (req, res) => {
 // Update a User
 exports.update = (req, res) => {
 	const id = req.params.recipeId;
-	Recipe.update( { title: req.body.title, 
+	Recipe.update( { 
+		title: req.body.title, 
 		time: req.body.time, 
 		difficulty: req.body.difficulty, 
 		category: req.body.category, 

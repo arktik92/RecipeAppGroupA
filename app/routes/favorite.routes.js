@@ -1,3 +1,4 @@
+/*
 module.exports = function(app) {
     const favorites = require('../controllers/favorite.controllers.js');
     // var router = require('express').Router();
@@ -17,3 +18,4 @@ module.exports = function(app) {
   // Delete a Message with id
   app.delete("/favorites/:favoriteId", favorites.delete);
 }
+*/

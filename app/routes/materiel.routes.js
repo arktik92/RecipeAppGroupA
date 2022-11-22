@@ -1,3 +1,4 @@
+/*
 module.exports = function(app) {
 
     const materiels = require('../controllers/materiel.controllers');
@@ -17,3 +18,4 @@ module.exports = function(app) {
   // Delete a Message with id
   app.delete("/materiels/:materielId", materiels.delete);
 }
+*/

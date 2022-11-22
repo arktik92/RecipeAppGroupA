@@ -1,3 +1,4 @@
+/*
 module.exports = (app) => {
     const recipeIngredients = require('../controllers/recipeIngredient.controllers.js');
 
@@ -16,3 +17,4 @@ module.exports = (app) => {
     //Delete a recipeIngredient with Id
     app.delete('/recipeIngredients/:recipeIngredientId', recipeIngredients.delete);
 }
+*/
