@@ -67,7 +67,7 @@ db.steps.belongsTo(db.recipes, {
 // Ingredient -> RecipeIngredient <- Recipe
 db.ingredients.belongsToMany(db.recipes, { 
   through: "recipeIngredients", 
-  oreignKey: "ingredientId",
+  foreignKey: "ingredientId",
   otherKey: "recipeId"
 });
 
