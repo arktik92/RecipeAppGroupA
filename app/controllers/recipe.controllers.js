@@ -1,5 +1,5 @@
 const db = require('../config/db.config');
-Cont Ingredients = db.ingredients
+const Ingredients = db.ingredients
 
 const Recipe = db.recipes;
 
