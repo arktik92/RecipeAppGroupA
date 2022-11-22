@@ -24,7 +24,7 @@ exports.create = (req, res) => {
 			  }
 			}
 		  }).then(ingredients => {
-			recipe.setIngredients(ingredients, { through: { quantity: req.body.quantity, unity: req.body.unity } }).then(() => {
+			recipe.addIngredients(ingredients, { through: { quantity: req.body.quantity, unity: req.body.unity } }).then(() => {
 			  res.send({ message: "Ingredient was added successfully!" });
 			});
 		  });

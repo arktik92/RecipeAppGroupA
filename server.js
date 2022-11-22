@@ -11,12 +11,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const db = require('./app/config/db.config.js');
-//  db.sequelize.sync({force: false}).then(() => {
-//  console.log('Drop and Resync with { force: true }');
-// });
- 
-// api routes
+
 app.get("/", (req, res) => {
+// api routes
   res.json({ message: "Welcome to the TEAM's App." });
 });
  
@@ -35,4 +32,9 @@ app.listen(PORT, "0.0.0.0", () => {
   console.log(`Server is running on port ${PORT}.`);
 });
 
-db.sequelize.sync()
+// db.sequelize.sync()
+
+ db.sequelize.sync({force: true}).then(() => {
+ console.log('Drop and Resync with { force: true }');
+});
+ 
