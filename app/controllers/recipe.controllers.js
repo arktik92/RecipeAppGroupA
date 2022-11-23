@@ -72,8 +72,8 @@ exports.create = (req, res) => {
 // exports.create = (req, res) => {	
 // 	// Save to MySQL database
 // 	Recipe.create({  
-//         title: req.body.title,
-//         time: req.body.time,
+	//         title: req.body.title,
+	//         time: req.body.time,
 //         difficulty: req.body.difficulty,
 //         category: req.body.category,
 //         season: req.body.season,
